@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+//1. 定义构造函数，描述所有学生的统一结构
+function Student(sname,sage){
+//要求所有学生: 
+  this.sname=sname;//必须有sname属性
+  this.sage=sage;//必须有sage属性
+  this.intr=function(){//必须有格式一致的intr方法
+    console.log(`I'm ${this.sname}, I'm ${this.sage}`);
+  }
+}
+var lilei=new Student("Li Lei",11);
+var hmm=new Student("Han meimei",12);
+console.log(lilei);
+console.log(hmm);
+lilei.intr();
+hmm.intr();
+</script>
+</body>
+</html>

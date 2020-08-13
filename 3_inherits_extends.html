@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+//1. 定义抽象父类型保存相同部分的属性和方法
+function Enemy(fname,speed){
+  this.fname=fname;
+  this.speed=speed;
+}
+Enemy.prototype={
+  fly:function(){        
+    console.log(`${this.fname} 以时速 ${this.speed} 飞行`);    
+  }
+}
+function Plane(fname, speed, score){
+  Enemy.call(this,fname,speed);
+  this.score=score;
+}                                         Plane.prototype={
+  getScore:function(){
+    console.log(`击落${this.fname}得${this.score}分`)
+  }
+}
+Plane.prototype.__proto__=Enemy.prototype
+var f16=new Plane("F16", 1000, 5);
+f16.fly();  //F16 以时速 1000 飞行
+f16.getScore();  //击落F16 得 5 分
+console.log(f16);
+</script>
+</body>
+</html>
